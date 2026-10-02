@@ -74,6 +74,116 @@ This website serves as a record of a place that is still changing, before it dis
 <div class="model-info">↻ Drag to rotate · Scroll to zoom · Touch supported</div>
 </div>
 </section
+
+<!-- 1. Graffiti Section (HTML) -->
+<section id="graffiti" class="graffiti-section">
+    <h2>Graffiti Gallery</h2>
+    <p>Click any picture to view it in full size!</p>
+    
+    <div class="graffiti-grid">
+        <img src="models/graffiti1.jpg" alt="Graffiti 1" onclick="openModal(this)">
+        <img src="models/graffiti2.jpg" alt="Graffiti 2" onclick="openModal(this)">
+        <img src="models/graffiti3.jpg" alt="Graffiti 3" onclick="openModal(this)">
+        <img src="models/graffiti4.jpg" alt="Graffiti 4" onclick="openModal(this)">
+        <img src="models/graffiti5.jpg" alt="Graffiti 5" onclick="openModal(this)">
+        <img src="models/graffiti6.jpg" alt="Graffiti 6" onclick="openModal(this)">
+        <img src="models/graffiti7.jpg" alt="Graffiti 7" onclick="openModal(this)">
+        <img src="models/graffiti8.jpg" alt="Graffiti 8" onclick="openModal(this)">
+    </div>
+</section>
+
+<!-- Fullscreen Modal Pop-up Box -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
+
+
+<!-- 2. Design & Layout (CSS) -->
+<style>
+.graffiti-section {
+    padding: 30px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    margin-top: 40px;
+}
+
+.graffiti-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 12px;
+    max-width: 800px;
+    margin: 20px auto 0 auto;
+}
+
+.graffiti-grid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.graffiti-grid img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Modal Pop-up Styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80vh;
+    border-radius: 8px;
+    animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.7)}
+    to {transform: scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+</style>
+
+
+<!-- 3. Function (JavaScript) -->
+<script>
+function openModal(element) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("img01");
+    modal.style.display = "block";
+    modalImg.src = element.src;
+}
+
+function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+}
+</script>
  
 <section id="gallery">
 <div class="label">03 / PHOTOGRAPHY</div>
